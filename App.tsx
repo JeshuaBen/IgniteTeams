@@ -8,7 +8,7 @@ import {
 
 import theme from "./src/theme";
 
-import NewGroup from "@screens/NewGroup";
+import Players from "@screens/Players";
 import { Loading } from "@components/Loading";
 import { StatusBar } from "react-native";
 
@@ -27,7 +27,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      {areFontsLoaded ? <NewGroup /> : <Loading />}
+      {areFontsLoaded ? <Players /> : <Loading />}
     </ThemeProvider>
   );
 }
