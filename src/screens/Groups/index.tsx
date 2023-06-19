@@ -25,7 +25,7 @@ export const Groups: React.FC = () => {
         )}
       />
 
-      <Button title="Cadastrar nova turma" />
+      <Button title="Criar nova turma" />
     </S.Container>
   );
 };
