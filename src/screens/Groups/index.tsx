@@ -5,6 +5,7 @@ import * as S from "./styles";
 import { Header } from "@components/Header";
 import { GroupCard } from "@components/GroupCard";
 import ListEmpty from "@components/ListEmpty";
+import Button from "@components/Button";
 
 export const Groups: React.FC = () => {
   const [groups, setGroups] = useState<string[]>([]);
@@ -23,6 +24,8 @@ export const Groups: React.FC = () => {
           <ListEmpty message="Que tal cadastrar a primeira turma?" />
         )}
       />
+
+      <Button title="Cadastrar nova turma" />
     </S.Container>
   );
 };
