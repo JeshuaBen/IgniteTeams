@@ -1,3 +1,4 @@
+import Filter from "@components/Filter";
 import * as S from "./styles";
 import { Header } from "@components/Header";
 import { Highlight } from "@components/Highlight";
@@ -18,6 +19,8 @@ const Players = () => {
         <Input placeholder="Nome da pessoa" autoCorrect={false} />
         <IconButton iconName="add" />
       </S.Form>
+
+      <Filter title="Time A" />
     </S.Container>
   );
 };
