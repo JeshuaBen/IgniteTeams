@@ -1,7 +1,7 @@
 import { useState } from "react";
+import * as S from "./styles";
 import { FlatList } from "react-native";
 import { Highlight } from "@components/Highlight";
-import * as S from "./styles";
 import { Header } from "@components/Header";
 import { GroupCard } from "@components/GroupCard";
 import ListEmpty from "@components/ListEmpty";

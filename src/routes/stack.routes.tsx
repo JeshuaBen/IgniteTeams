@@ -11,11 +11,11 @@ const StackRoutes: React.FC = () => {
       screenOptions={{
         headerShown: false,
       }}
-      initialRouteName="Groups"
+      initialRouteName="groups"
     >
-      <Screen name="Groups" component={Groups} />
-      <Screen name="NewGroup" component={NewGroup} />
-      <Screen name="Players" component={Players} />
+      <Screen name="groups" component={Groups} />
+      <Screen name="newGroup" component={NewGroup} />
+      <Screen name="players" component={Players} />
     </Navigator>
   );
 };
