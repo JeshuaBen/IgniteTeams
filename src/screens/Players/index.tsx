@@ -1,27 +1,30 @@
 import Filter from "@components/Filter";
 import * as S from "./styles";
+import { FlatList } from "react-native";
+import { useState } from "react";
+import { useRoute } from "@react-navigation/native";
+
 import { Header } from "@components/Header";
 import { Highlight } from "@components/Highlight";
 import IconButton from "@components/IconButton";
 import Input from "@components/Input";
-import { FlatList } from "react-native";
-import { useState } from "react";
 import PlayersCard from "@components/PlayersCard";
 import ListEmpty from "@components/ListEmpty";
 import Button from "@components/Button";
+import { PlayerRouteParams } from "./types";
 
 const Players = () => {
   const [team, setTeam] = useState("Time A");
   const [players, setPlayers] = useState([]);
 
+  const route = useRoute();
+  const { group } = route.params as PlayerRouteParams;
+
   return (
     <S.Container>
       <Header showBackButton />
 
-      <Highlight
-        title="Nome da turma"
-        subtitle="Adicione a galera e separe os times"
-      />
+      <Highlight title={group} subtitle="Adicione a galera e separe os times" />
 
       <S.Form>
         <Input placeholder="Nome da pessoa" autoCorrect={false} />

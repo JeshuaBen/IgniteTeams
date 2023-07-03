@@ -1,3 +1,4 @@
+import { useState } from "react";
 import * as S from "./styles";
 import { Header } from "@components/Header";
 import { Highlight } from "@components/Highlight";
@@ -6,11 +7,13 @@ import Input from "@components/Input";
 import { useNavigation } from "@react-navigation/native";
 
 const NewGroup = () => {
+  const [groupName, setGroupName] = useState<string>("");
+
   const navigation = useNavigation();
 
   const handleAddGroups = () => {
     navigation.navigate("players", {
-      group: "Rocketseat",
+      group: groupName,
     });
   };
 
@@ -25,7 +28,7 @@ const NewGroup = () => {
           subtitle="Crie a tuma para adicionar as pessoas"
         />
 
-        <Input placeholder="Nome da turma" />
+        <Input placeholder="Nome da turma" onChangeText={setGroupName} />
 
         <Button
           title="Criar"
