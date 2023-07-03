@@ -3,12 +3,7 @@ import { Groups } from "@screens/Groups";
 import NewGroup from "@screens/NewGroup";
 import Players from "@screens/Players";
 
-export type RootStackParamList = {
-  Groups: undefined;
-  Players: undefined;
-  NewGroup: undefined;
-};
-const { Navigator, Screen } = createNativeStackNavigator<RootStackParamList>();
+const { Navigator, Screen } = createNativeStackNavigator();
 
 const StackRoutes: React.FC = () => {
   return (
@@ -16,11 +11,11 @@ const StackRoutes: React.FC = () => {
       screenOptions={{
         headerShown: false,
       }}
-      initialRouteName="Groups"
+      initialRouteName="groups"
     >
-      <Screen name="Groups" component={Groups} />
-      <Screen name="NewGroup" component={NewGroup} />
-      <Screen name="Players" component={Players} />
+      <Screen name="groups" component={Groups} />
+      <Screen name="newGroup" component={NewGroup} />
+      <Screen name="players" component={Players} />
     </Navigator>
   );
 };

@@ -1,14 +1,21 @@
 import { useState } from "react";
+import * as S from "./styles";
 import { FlatList } from "react-native";
 import { Highlight } from "@components/Highlight";
-import * as S from "./styles";
 import { Header } from "@components/Header";
 import { GroupCard } from "@components/GroupCard";
 import ListEmpty from "@components/ListEmpty";
 import Button from "@components/Button";
+import { useNavigation } from "@react-navigation/native";
 
 export const Groups: React.FC = () => {
   const [groups, setGroups] = useState<string[]>([]);
+
+  const navigation = useNavigation();
+
+  const handleCreateNewGroup = () => {
+    navigation.navigate("newGroup");
+  };
 
   return (
     <S.Container>
@@ -25,7 +32,7 @@ export const Groups: React.FC = () => {
         )}
       />
 
-      <Button title="Criar nova turma" />
+      <Button title="Criar nova turma" onPress={handleCreateNewGroup} />
     </S.Container>
   );
 };
