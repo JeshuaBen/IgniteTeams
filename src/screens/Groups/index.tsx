@@ -13,7 +13,7 @@ export const Groups: React.FC = () => {
 
   const navigation = useNavigation();
 
-  const handleNewGroup = () => {
+  const handleCreateNewGroup = () => {
     navigation.navigate("newGroup");
   };
 
@@ -32,7 +32,7 @@ export const Groups: React.FC = () => {
         )}
       />
 
-      <Button title="Criar nova turma" onPress={handleNewGroup} />
+      <Button title="Criar nova turma" onPress={handleCreateNewGroup} />
     </S.Container>
   );
 };
