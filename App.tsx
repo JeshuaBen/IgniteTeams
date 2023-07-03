@@ -8,9 +8,9 @@ import {
 
 import theme from "./src/theme";
 
-import Players from "@screens/Players";
 import { Loading } from "@components/Loading";
 import { StatusBar } from "react-native";
+import { Routes } from "@routes/index";
 
 export default function App() {
   // Carregamento de fontes é algo assíncrono, dado isto, temos que fazer a verificação se essas fontes já estão carregadas.
@@ -27,7 +27,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      {areFontsLoaded ? <Players /> : <Loading />}
+      {areFontsLoaded ? <Routes /> : <Loading />}
     </ThemeProvider>
   );
 }
