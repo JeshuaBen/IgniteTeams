@@ -7,6 +7,7 @@ import { GroupCard } from "@components/GroupCard";
 import ListEmpty from "@components/ListEmpty";
 import Button from "@components/Button";
 import { useNavigation } from "@react-navigation/native";
+import { getAllGroups } from "@storage/group/getAllGroups";
 
 export const Groups: React.FC = () => {
   const [groups, setGroups] = useState<string[]>([]);
@@ -15,6 +16,14 @@ export const Groups: React.FC = () => {
 
   const handleCreateNewGroup = () => {
     navigation.navigate("newGroup");
+  };
+
+  const getGroups = async () => {
+    try {
+      await getAllGroups();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
