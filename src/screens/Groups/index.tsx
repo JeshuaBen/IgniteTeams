@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import * as S from "./styles";
 import { FlatList } from "react-native";
 import { Highlight } from "@components/Highlight";
@@ -6,7 +6,7 @@ import { Header } from "@components/Header";
 import { GroupCard } from "@components/GroupCard";
 import ListEmpty from "@components/ListEmpty";
 import Button from "@components/Button";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import { getAllGroups } from "@storage/group/getAllGroups";
 
 export const Groups: React.FC = () => {
@@ -18,13 +18,23 @@ export const Groups: React.FC = () => {
     navigation.navigate("newGroup");
   };
 
-  const getGroups = async () => {
+  const fetchGroups = async () => {
     try {
-      await getAllGroups();
+      const data = await getAllGroups();
+      setGroups(data);
     } catch (error) {
       console.log(error);
     }
   };
+
+  // useFocusEffect ele vai ser executado novamente toda vez que o foco voltar para ele. De forma a naveguei para a página novamente,
+  // quero executar o que tem dentro do useFocusEffect. É recomendado sempre utilizar ele com useCallback para evitar re-render.
+
+  useFocusEffect(
+    useCallback(() => {
+      fetchGroups();
+    }, [])
+  );
 
   return (
     <S.Container>
