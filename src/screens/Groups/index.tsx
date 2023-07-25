@@ -27,6 +27,10 @@ export const Groups: React.FC = () => {
     }
   };
 
+  const handleOpenGroup = (group: string) => {
+    navigation.navigate("players", { group });
+  };
+
   // useFocusEffect ele vai ser executado novamente toda vez que o foco voltar para ele. De forma a naveguei para a página novamente,
   // quero executar o que tem dentro do useFocusEffect. É recomendado sempre utilizar ele com useCallback para evitar re-render.
 
@@ -44,7 +48,9 @@ export const Groups: React.FC = () => {
       <FlatList
         data={groups}
         keyExtractor={(item) => item}
-        renderItem={({ item }) => <GroupCard title={item} />}
+        renderItem={({ item }) => (
+          <GroupCard title={item} onPress={() => handleOpenGroup(item)} />
+        )}
         contentContainerStyle={groups.length === 0 && { flex: 1 }}
         ListEmptyComponent={() => (
           <ListEmpty message="Que tal cadastrar a primeira turma?" />
