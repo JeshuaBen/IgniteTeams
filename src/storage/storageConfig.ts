@@ -2,4 +2,6 @@
 // @nomeDoProjeto: informação a ser salva. Ex: @ignite-teams:groups
 const GROUP_COLLECTION = "@ignite-teams:groups";
 
-export { GROUP_COLLECTION };
+const PLAYER_COLLECTION = "@ignite-teams:players";
+
+export { GROUP_COLLECTION, PLAYER_COLLECTION };
